@@ -1,0 +1,27 @@
+i{
+    font-size: x-large;
+}
+.fa-google{
+    color: rgba(245, 9, 9, 0.79);
+}
+.fa-facebook{
+    color: rgba(0, 100, 250, 0.79);
+}
+.fa-microsoft{
+    color:navy;
+    border-radius: 50%;
+}
+ul.button{
+    display: inline;
+}
+span{
+    padding-inline: 7px;
+}
+button{
+    background-color: transparent;
+    border-color: transparent;
+}
+asl-google-signin-button{
+    position: absolute;
+    left: -15%;
+}

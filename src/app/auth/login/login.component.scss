@@ -1,0 +1,160 @@
+
+
+*,*:before,*:after{box-sizing:border-box}
+
+body{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: 'Raleway', sans-serif;
+  padding: 0%;
+//  background-image: url('https://wallpapercrafter.com/desktop3/984492-mint-peppermint-plant-leaves-herbs-aroma-nature.jpg');
+}
+
+.container{
+  width:100%;
+  height:100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
+  &:hover,&:active{
+    .top, .bottom{
+      &:before, &:after{
+        margin-left: 200px;
+        transform-origin: -200px 50%;
+        transition-delay:0s;
+      }
+    }
+    
+    .center{
+      opacity:1;
+      transition-delay:0.2s;
+    }
+  }
+}
+.top, .bottom{
+  &:before, &:after{
+    content:'';
+    display:block;
+    position:absolute;
+    width:200vmax;
+    height:200vmax;
+    top:50%;left:50%;
+    margin-top:-100vmax;
+    transform-origin: 0 50%;
+    transition:all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+    z-index:10;
+    opacity:0.65;
+    transition-delay:0.2s;
+  }
+}
+
+.top{
+  &:before{transform:rotate(45deg);background:#79e620;}
+  &:after{transform:rotate(135deg);background:#0dff00;}
+}
+
+.bottom{
+  &:before{transform:rotate(-45deg);background:#6fdc09;}
+  &:after{transform:rotate(-135deg);background:#019736;}
+}
+
+.center{
+  position:absolute;
+  width:400px;
+  height:400px;
+  top:40%;left:50%;
+  margin-left:-200px;
+  margin-top:-200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:30px;
+  opacity:0;
+  transition:all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay:0s;
+  color:#333;
+  
+  input{
+    width:100%;
+    padding:15px;
+    margin:5px;
+    border-radius:1px;
+    border:1px solid #ccc;
+    font-family:inherit;
+  }
+}
+button{
+    position: absolute;
+    top:83%;
+    left:38%;
+    width: 100px;
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    justify-content: center;
+}
+
+span{
+  position: absolute;
+  top:76%;
+  right:57%;
+  color:#019736;
+  font-size: small;
+}
+
+fieldset{
+  position: absolute;
+  top:92%;
+}
+h5{
+  position: absolute;
+  top:109%;
+}
+.socialLogin{
+  position: absolute;
+  top:100%;
+  right: 36%;
+}
+img{
+  width:100px;
+  height: 50px;
+}
+.center{
+  position:absolute;
+  width:400px;
+  height:400px;
+  top:40%;left:50%;
+  margin-left:-200px;
+  margin-top:-200px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:30px;
+  opacity:0;
+  transition:all 0.5s cubic-bezier(0.445, 0.05, 0, 1);
+  transition-delay:0s;
+  color:#333;
+  
+  .input-border{
+    width:100%;
+    padding:15px;
+    margin:5px;
+    border-radius:5px;
+    border:2px solid #c72a2a;
+    font-family:inherit;
+    box-shadow: 10px 10px 60px 0px rgb(242, 136, 136);
+  }
+}
+.confirm{
+  display: inline;
+  color:rgb(8, 8, 8);
+  font-size: 10px;
+  position: absolute;
+  top:92%;
+  left:10%;
+}

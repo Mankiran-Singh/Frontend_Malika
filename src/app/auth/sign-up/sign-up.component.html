@@ -1,0 +1,35 @@
+<body>
+    <div class="container" onclick="onclick">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="center">
+          <img [src]="malikaLogo">
+          <h2>Please Register</h2>
+          <form [formGroup]="signUpForm" (ngSubmit)="signUp()">     
+            <input type="text" placeholder="Name" formControlName="name"
+            [ngClass]="{'input-border':name && name.invalid && (name.errors?.['required'] && showErrors) || ((name.dirty || name.touched) && name.errors?.['pattern'])}">
+          
+            <input type="email" placeholder="Email" formControlName="email"
+            [ngClass]="{'input-border':email && email.invalid && (email.errors?.['required'] && showErrors) || ((email.dirty || email.touched) && email.errors?.email)}">
+          
+            <input [type]="changetype?'password':'text'" placeholder="password" name="password" formControlName="password" [ngClass]="{'input-border':password && password.invalid && (password.errors?.['required'] && showErrors) || ((password.dirty || password.touched) && password.errors?.['pattern']) || signUpForm.errors?.['passwordMismatch'] }">
+            <span [ngClass]="showErrors?'eyeicon1':'eyeicon'" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'" style="padding: 0px;"></i></span>
+        
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" [ngClass]="{'input-border':confirmPassword && confirmPassword.invalid && (confirmPassword.errors?.['required'] && showErrors) || signUpForm.errors?.['passwordMismatch']}">
+            <!-- <span class="confirm" *ngIf="signUpForm.errors?.['passwordMismatch']">*Passwords does'nt match</span> -->
+            <span class="confirm" *ngIf="password && password.invalid && (password.errors?.['required'] && showErrors) || ((password.dirty || password.touched) && password.errors?.['pattern'])">
+                        Password should be 8 characters long, must contain capital letters,<br> numbers and symbols like '*[!@#\$%\^&\*'</span>
+            
+            <input formControlName="photo" type="file" (change)="onFileChange($event)" placeholder="Upload your picture"
+            [ngClass]="{'input-border':photo && photo.invalid && (photo.errors?.['required'] && showErrors)}">
+                       
+            <button class="btn btn-success" type="submit">SignUp</button>
+          </form>
+          <h5>Already having an account...? <a routerLink="/auth/login">Login</a></h5>
+          <fieldset><legend>OR</legend></fieldset>
+          <div class="socialLogin">
+              <app-social-login></app-social-login>
+          </div>
+        </div>
+    </div>
+</body>
