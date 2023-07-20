@@ -10,7 +10,7 @@
             [ngClass]="{'input-border':email && email.invalid && (email.errors?.['required'] && showErrors) || ((email.dirty || email.touched) && email.errors?.email)}">
           
             <input type="password" placeholder="password" name="password" formControlName="password" [ngClass]="{'input-border':password && password.invalid && (password.errors?.['required'] && showErrors) || ((password.dirty || password.touched) && password.errors?.['pattern'])}">
-            <span><a href="#">Forgot Password...?</a></span>
+            <span><a routerLink="/auth/forgotPassword">Forgot Password...?</a></span>
             <button class="btn btn-success" type="submit">Login</button>
           </form>
           <h5>Don't having an account...? <a routerLink="/auth/signUp">Register</a></h5>

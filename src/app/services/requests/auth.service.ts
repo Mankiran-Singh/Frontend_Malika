@@ -55,4 +55,23 @@ export class AuthService {
      return this.http.post(url+UrlRequests.googleLogin,{idToken:idToken})
   }
 
+  forgotPassword(email: string| null | undefined): Observable<any> {
+    return this.http.post(
+      url + UrlRequests.forgotPassword,
+      {
+        email
+      }
+    );
+  }
+
+  resetPassword(password: string| null | undefined,confirmPassword:string |null|undefined): Observable<any> {
+    return this.http.post(
+      url + UrlRequests.forgotPassword,
+      {
+        password,
+        confirmPassword
+      }
+    );
+  }
+
 }
