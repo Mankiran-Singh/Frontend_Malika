@@ -20,6 +20,7 @@ import { GoogleSigninButtonModule } from '@abacritt/angularx-social-login';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AuthService } from '../services/requests/auth.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AuthGuardService } from '../services/guards/auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     SocialLoginModule,
     GoogleSigninButtonModule
   ],
-  providers: [AuthService,
+  providers: [AuthService,AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true },
     {
       provide: 'SocialAuthServiceConfig',

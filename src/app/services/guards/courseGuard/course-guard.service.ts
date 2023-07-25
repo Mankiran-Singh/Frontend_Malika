@@ -10,11 +10,11 @@ export class CourseGuardService {
   canActivate():boolean{
     const token=localStorage.getItem('token');
     const idToken=localStorage.getItem('googleIdToken');
-    if(!token || !idToken){
-       this.router.navigate(['/auth/login']);
-       return false;
-    }else{
+    if(token || idToken){
        return true;
+    }else{
+      this.router.navigate(['/auth/login']);
+      return false;
     }
   }
 }

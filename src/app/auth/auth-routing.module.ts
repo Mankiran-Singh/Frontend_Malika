@@ -7,10 +7,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
-  {path:'signUp',component:SignUpComponent},
-  {path:'login',component:LoginComponent},
-  {path:'forgotPassword',component:ForgotPasswordComponent},
-  {path:'resetPassword',component:ResetPasswordComponent}
+  {path:'signUp',component:SignUpComponent,canActivate:[AuthGuardService]},
+  {path:'login',component:LoginComponent,canActivate:[AuthGuardService]},
+  {path:'forgotPassword',component:ForgotPasswordComponent,canActivate:[AuthGuardService]},
+  {path:'resetPassword',component:ResetPasswordComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({
