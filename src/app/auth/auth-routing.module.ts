@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'signUp',component:SignUpComponent,canActivate:[AuthGuardService]},
   {path:'login',component:LoginComponent,canActivate:[AuthGuardService]},
   {path:'forgotPassword',component:ForgotPasswordComponent,canActivate:[AuthGuardService]},
-  {path:'resetPassword',component:ResetPasswordComponent,canActivate:[AuthGuardService]}
+  {path:'resetPassword/:token',component:ResetPasswordComponent,canActivate:[AuthGuardService]}
 ];
 
 @NgModule({

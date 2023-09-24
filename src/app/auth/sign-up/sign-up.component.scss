@@ -89,7 +89,7 @@ body{
 }
 button{
     position: absolute;
-    top:110%;
+    top:100%;
     left:38%;
     width: 100px;
     height: 30px;
@@ -108,16 +108,17 @@ span{
 
 fieldset{
   position: absolute;
-  top:118%;
+  top:110%;
 }
 h5{
   position: absolute;
-  top:135%;
+  top:130%;
+  font-size: small;
 }
 .socialLogin{
   position: absolute;
-  top:125%;
-  right: 35%;
+  top:115%;
+  right: 32%;
 }
 img{
     width: 100px;
@@ -153,14 +154,14 @@ img{
 .eyeicon {
   position:absolute;
   left: 85%;
-  top:59%;
+  top:67%;
   width: 200px;
   color: #0c0c0c;
 }
 .eyeicon1 {
   position:absolute;
   left: 85%;
-  top: 59%;
+  top: 67%;
   width: 200px;
   color: #121212;
 }
@@ -170,6 +171,6 @@ img{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #910909;
   position: absolute;
-  top:100%;
+  top:90%;
   right: 10%;
 }

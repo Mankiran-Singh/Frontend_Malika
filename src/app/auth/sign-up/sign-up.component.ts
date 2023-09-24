@@ -23,36 +23,36 @@ export class SignUpComponent {
         /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
       ),Validators.minLength(8)]),
       confirmPassword:new FormControl('',Validators.required),
-      isAdmin:new FormControl(false),
-      photo: new FormControl('', [Validators.required]),
-      fileSource:new FormControl('',[Validators.required])
+      // isAdmin:new FormControl(false),
+      // photo: new FormControl('', [Validators.required]),
+      // fileSource:new FormControl('',[Validators.required])
      },{ validators: passwordsMatchValidator });
    }
 
-   get photo(){
-    return this.signUpForm.get('photo');
-  }
-  onFileChange(event:any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.signUpForm.patchValue({
-        fileSource: file
-      });
-    }
-  }
+  //  get photo(){
+  //   return this.signUpForm.get('photo');
+  // }
+  // onFileChange(event:any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     this.signUpForm.patchValue({
+  //       fileSource: file
+  //     });
+  //   }
+  // }
    showErrors=false;
 
    //Signing Up the User
    signUp(){
     if(this.signUpForm.valid){
-      console.log(this.signUpForm.value);
-      var reader = new FileReader();
-      reader.onload = () => {  
-         this.signUpForm.value.photo=reader.result;  
-      };  
-      reader.readAsDataURL(this.signUpForm.value.fileSource);
-      const {name,email,password,confirmPassword,isAdmin,photo}=this.signUpForm.value
-       this.authService.SignUp(name,email,password,confirmPassword,isAdmin,photo).pipe(
+      // console.log(this.signUpForm.value);
+      // var reader = new FileReader();
+      // reader.onload = () => {  
+      //    this.signUpForm.value.photo=reader.result;  
+      // };  
+      // reader.readAsDataURL(this.signUpForm.value.fileSource);
+      const {name,email,password,confirmPassword}=this.signUpForm.value
+       this.authService.SignUp(name,email,password,confirmPassword).pipe(
          this.toast.observe({
            loading: 'Please wait...',
            success: 'SignUp successful!',
@@ -89,10 +89,10 @@ export class SignUpComponent {
   }
 
   visible = true;
-   changetype =true;
+   changeType =true;
  
-   viewpass(){
+   viewPass(){
     this.visible = !this.visible;
-    this.changetype = !this.changetype;
+    this.changeType = !this.changeType;
    }
 }

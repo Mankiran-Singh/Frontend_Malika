@@ -20,7 +20,7 @@ export class AuthService {
 
   constructor(private http:HttpClient,private router:Router,private cookies:CookieService) { }
 
-  SignUp(name: string| null | undefined, email: string| null | undefined, password: string| null | undefined,confirmPassword: string| null | undefined,isAdmin:boolean |null |undefined, photo:string |null|undefined): Observable<any> {
+  SignUp(name: string| null | undefined, email: string| null | undefined, password: string| null | undefined,confirmPassword: string| null | undefined,/*isAdmin:boolean |null |undefined, photo:string |null|undefined*/): Observable<any> {
     return this.http.post(
       url + UrlRequests.signUp,
       {
@@ -28,8 +28,8 @@ export class AuthService {
         email,
         password,
         confirmPassword,
-        isAdmin,
-        photo
+        // isAdmin,
+        // photo
       }
     );
   }
@@ -64,9 +64,9 @@ export class AuthService {
     );
   }
 
-  resetPassword(password: string| null | undefined,confirmPassword:string |null|undefined): Observable<any> {
-    return this.http.post(
-      url + UrlRequests.forgotPassword,
+  resetPassword(password: string| null | undefined,confirmPassword:string |null|undefined,token:string| null|undefined): Observable<any> {
+    return this.http.patch(
+      url + UrlRequests.resetPassword+`/${token}`,
       {
         password,
         confirmPassword

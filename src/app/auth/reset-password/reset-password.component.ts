@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthService } from 'src/app/services/requests/auth.service';
 import { Images, passwordsMatchValidator } from 'src/files/constant';
 
 @Component({
@@ -10,6 +13,8 @@ import { Images, passwordsMatchValidator } from 'src/files/constant';
 export class ResetPasswordComponent {
   malikaLogo=Images.malikaLogo
   resetPasswordForm:any
+  token:any
+  constructor(private route:ActivatedRoute,private router:Router,private toast:HotToastService,private authService:AuthService){}
   ngOnInit(){
     this.resetPasswordForm=new FormGroup({
       password:new FormControl('',[Validators.required,  Validators.pattern(
@@ -17,6 +22,8 @@ export class ResetPasswordComponent {
       ),Validators.minLength(8)]),
       confirmPassword:new FormControl('',Validators.required),
      },{ validators: passwordsMatchValidator });
+
+    this.token=this.route.snapshot.params['token']
    }
 
    get password(){
@@ -30,6 +37,17 @@ export class ResetPasswordComponent {
    resetPassword(){
      if(this.resetPasswordForm.valid){
       console.log(this.resetPasswordForm.value)
+      const {password,confirmPassword}=this.resetPasswordForm.value
+      this.authService.resetPassword(password,confirmPassword,this.token).pipe(
+        this.toast.observe({
+          loading: 'Please wait...',
+          success: 'Password has been reset, Please Login !',
+          error: `Can't reset password try again !`,
+        })
+      ).subscribe((res)=>{
+        console.log('res', res)
+         this.router.navigate(['/auth/login'])
+      })
      }else{
       this.showErrors=true;
        if(this.resetPasswordForm.errors?.['passwordMismatch']){

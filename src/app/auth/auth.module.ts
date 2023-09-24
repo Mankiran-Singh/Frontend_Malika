@@ -21,7 +21,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AuthService } from '../services/requests/auth.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthGuardService } from '../services/guards/auth/auth-guard.service';
-
+import { ButtonsModule } from '@progress/kendo-angular-buttons'; // Import Kendo UI Buttons module
+import { InputsModule } from '@progress/kendo-angular-inputs';
 @NgModule({
   declarations: [
     SignUpComponent,
@@ -40,7 +41,9 @@ import { AuthGuardService } from '../services/guards/auth/auth-guard.service';
     HotToastModule.forRoot(),
     SpinnerComponent,
     SocialLoginModule,
-    GoogleSigninButtonModule
+    GoogleSigninButtonModule,
+    ButtonsModule,
+    InputsModule
   ],
   providers: [AuthService,AuthGuardService,
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true },

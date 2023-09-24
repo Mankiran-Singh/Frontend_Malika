@@ -19,9 +19,11 @@ export class SocialLoginComponent {
   
    user: SocialUser | undefined;
    loggedIn: boolean | undefined;
+   
    ngOnInit() {
     this.socialAuthService.authState.subscribe((user) => {
       this.authService.googleLogin(user.idToken).subscribe((res)=>{
+        console.log('res', res)
         localStorage.setItem("googleIdToken",user.idToken) ;
         this.router.navigate(['/home']);
         console.log("Google Login success",res);

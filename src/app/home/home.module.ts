@@ -11,6 +11,11 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 }from '@abacritt/angularx-social-login';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button'
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -19,7 +24,12 @@ import {
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    MatListModule
   ],
   providers:[{ provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true },CookieService,
     {

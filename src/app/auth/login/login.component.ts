@@ -41,8 +41,8 @@ export class LoginComponent {
          (res:any)=>{
            console.log("====>",res)
            localStorage.setItem('token',res.data.token)
-           if(res.data.isAdmin===true){
-              localStorage.setItem('admin',res.data.isAdmin)
+           if(res.data.role==="admin"){
+              localStorage.setItem('admin',res.data.role)
               this.router.navigate(['/home/admin']);
            }
            this.loginForm.reset();

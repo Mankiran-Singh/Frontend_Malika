@@ -1,0 +1,41 @@
+/* Set the height of the logo */
+.container{
+  display: flex;
+}
+.logo {
+  height: 45px; /* Adjust the height as needed */
+}
+
+/* Create a flexible spacer to push elements to the right */
+.spacer {
+  flex: 1;
+}
+
+/* Style the navigation links */
+// .mat-toolbar .mat-nav-list .mat-list-item a {
+//   color: white;
+//   font-size: large;
+//   font-family: 'Times New Roman', Times, serif;
+// }
+mat-nav-list {
+  display: flex;
+  flex-direction: row;
+  // align-items: center; /* Vertically align items in the middle */
+  // justify-content: flex-end; /* Adjust as needed to position links */
+}
+
+/* Style the entire mat-toolbar */
+.mat-toolbar {
+  background-color: rgb(39, 222, 39); /* Change the background color to your desired color */
+}
+
+/* Set the text color to black for all elements within the toolbar */
+.mat-toolbar * {
+  color: black;
+}
+
+/* Style the img-fluid class */
+.img-fluid {
+  width: 120px;
+  height: 45px;
+}
